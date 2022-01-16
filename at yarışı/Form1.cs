@@ -35,7 +35,7 @@ namespace at_yarışı
             double para = Convert.ToInt32(textBox1.Text);
             double kpara = Convert.ToInt32(textBox2.Text);
 
-            bir = hız.Next(5, 10);
+            bir = hız.Next(1, 10);
             int a = 0;
             a += bir;
             pictureBox1.Left += a;
@@ -54,17 +54,27 @@ namespace at_yarışı
                         double toplam = kpara + fark;
 
                         label8.Text = toplam.ToString();
+                        MessageBox.Show("Tebrikler kazandınız !!!!!!!"+"birinci at kazandııııı!!!!!!");
                     }
                 }
                 else if (pictureBox2.Left < 970 || pictureBox3.Left < 970)
                 {
                     listBox1.Items.Add("Birinci at 2.oldu");
                     timer2.Enabled = false;
+                    double fark = para - kpara;
+                    label8.Text = fark.ToString();
+                    if(radioButton1.Checked==true)
+                        MessageBox.Show("Kaybettiniz :(");
                 }
                 else
                 {
                     listBox1.Items.Add("birinci at 3.oldu ");
                     timer2.Enabled = false;
+
+                    double fark = para - kpara;
+                    label8.Text = fark.ToString();
+                    if(radioButton1.Checked==true)
+                        MessageBox.Show("Kaybettiniz :(");
                 }    
             }
         }
@@ -94,17 +104,29 @@ namespace at_yarışı
                         double toplam = kpara + fark;
 
                         label8.Text = toplam.ToString();
+                        
+                        MessageBox.Show("Tebrikler kazandınız !!!!!!!" + "ikinci at kazandııııı!!!!!!");
                     }
                 }
                 else if (pictureBox1.Left < 970 || pictureBox3.Left < 970)
                 {
                     listBox1.Items.Add("İkinci at 2.oldu");
                     timer3.Enabled = false;
+
+                    double fark = para - kpara;
+                    label8.Text = fark.ToString();
+                    if(radioButton2.Checked==true)
+                        MessageBox.Show("Kaybettiniz :(");
                 }
                 else
                 {
                     listBox1.Items.Add("İkinci at 3.oldu ");
                     timer3.Enabled = false;
+
+                    double fark = para - kpara;
+                    label8.Text = fark.ToString();
+                    if (radioButton2.Checked == true)
+                        MessageBox.Show("Kaybettiniz :(");
                 }
             }
         }
@@ -132,6 +154,8 @@ namespace at_yarışı
                         double toplam = kpara + fark;
 
                         label8.Text = toplam.ToString();
+                        
+                        MessageBox.Show("Tebrikler kazandınız !!!!!!!" + "üçüncü at kazandııııı!!!!!!");
                     }
                     
                 }
@@ -139,12 +163,22 @@ namespace at_yarışı
                 {
                     listBox1.Items.Add("Üçüncü at 2.oldu");
                     timer4.Enabled = false;
-                    
+
+                    double fark = para - kpara;
+                    label8.Text = fark.ToString();
+                    if(radioButton3.Checked==true)
+                        MessageBox.Show("Kaybettiniz :(");
+
                 }
                 else
                 {
                     listBox1.Items.Add("Üçüncü at 3.oldu ");
                     timer4.Enabled = false;
+
+                    double fark = para - kpara;
+                    label8.Text = fark.ToString();
+                    if (radioButton3.Checked == true)
+                        MessageBox.Show("Kaybettiniz :(");
                 }
             }
         }
@@ -180,11 +214,20 @@ namespace at_yarışı
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (radioButton1.Checked != true && radioButton2.Checked != true && radioButton3.Checked != true)
+            {
+                MessageBox.Show("Lütfen bir at, avrat, ve silah(kat tlniz var?) seçın :D");
+            }
+            else
+            {
+                timer1.Enabled = true;
+                timer2.Enabled = true;
+                timer3.Enabled = true;
+                timer4.Enabled = true;
 
-            timer1.Enabled = true;
-            timer2.Enabled = true;
-            timer3.Enabled = true;
-            timer4.Enabled = true;
+            }
+
+            
 
         }
     }
